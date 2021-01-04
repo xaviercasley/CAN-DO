@@ -1,0 +1,42 @@
+Firmware for running on the CAN-DO.
+-------------------------------------------------------------------------------------
+The desired function of the CAN-DO is as follows:
+  - Configuration of interfaces
+  - Configuration of behaviour
+  - Configuration of commands to the CAN-DO
+  - Configuration of messages sent by the CAN-DO
+-------------------------------------------------------------------------------------
+The CAN-DO supports the following ports:
+  - 3x high side drivers with current feedback
+  - 1x H-Bridge driver with current feedback
+  - 2x 12bit analog inputs
+  - 4x digital inputs (up to 12V tolerant)
+The CAN-DO supports up to XX unique Triggers
+  
+INPUTS:
+-------------------------------------------------------------------------------------
+
+OUTPUTS:
+-------------------------------------------------------------------------------------
+
+Each output has the following functions:
+  - Trip at a maximu software limit (and hardware limit)
+  - Digital enable/disable of output
+  - Analog/PWM Duty cycle output
+  - Toggle output
+
+Each channel can have the following sequence of functions
+
+Input                         Trigger                          Output Type                   Output Type
+Analog sense                  Greater than value               Digital output (switch)       Enable/Disable (settable current limit)
+Output Channel sense          Less than value                  PWM Duty Cycle                PWM Duty equal to set value
+CAN command                   Equal to value                                                 PWM equals Input value (CAN only)
+                              Interpret CAN value (no action)                                Toggle output (settable current limit)
+                                                                                             
+
+Thresholds have a configurable hysteresis
+
+- Analog measured threshold on the output
+    - Analog measured threshold on sense input
+    - Digital high/low trigger from sense input
+      
